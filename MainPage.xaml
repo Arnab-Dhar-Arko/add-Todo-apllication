@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp6.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+
+            <!-- Image -->
+            <Image Source="dotnet_bot.png"
+                   HeightRequest="185"
+                   Aspect="AspectFit"
+                   SemanticProperties.Description="Dotnet Bot in a race car" />
+
+            <!-- Weather Button -->
+            <Button x:Name="WeatherButton"
+                    Text="Get Weather"
+                    Clicked="OnWeatherButtonClicked"
+                    HorizontalOptions="Fill" />
+
+            <!-- Activity Indicator -->
+            <ActivityIndicator x:Name="WeatherActivityIndicator"
+                               IsRunning="False"
+                               IsVisible="False"
+                               Color="Blue"
+                               HorizontalOptions="Center" />
+
+            <!-- Weather Information -->
+            <Label x:Name="WeatherLabel"
+                   Text="Weather data will appear here."
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="Black" />
+            <!-- To-Do Section -->
+            <Label Text="To-Do List" FontSize="24" HorizontalOptions="Center" />
+            <Entry x:Name="NewTaskEntry" Placeholder="Enter a new task" />
+            <Button Text="Add Task" Clicked="OnAddTaskButtonClicked" HorizontalOptions="Fill" />
+            <Button Text="Delete Task" Clicked="OnDeleteTaskButtonClicked" HorizontalOptions="Fill" />
+            <Button Text="Mark as Completed" Clicked="OnMarkAsCompletedButtonClicked" HorizontalOptions="Fill" />
+
+            <Label x:Name="TaskCountLabel" Text="0 tasks" FontSize="18" HorizontalOptions="Center" />
+
+            <ListView x:Name="TodoListView" SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+        </ScrollView>
+</ContentPage>
